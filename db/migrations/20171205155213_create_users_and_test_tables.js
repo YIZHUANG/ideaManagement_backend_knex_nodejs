@@ -17,18 +17,21 @@ exports.up = function(knex, Promise) {
     table.timestamp('lastModified').defaultTo(knex.fn.now());
     table.integer('categoryId').references('id').inTable('category');
   })
+
   .createTable('member',function(table){
     table.increments();
     table.string('userName').notNullable();
     table.string('email').notNullable();
   })
+
   .createTable('memberIdea',function(table){
     table.integer('memberId').references('id').inTable('member');
     table.integer('ideaId').references('id').inTable('idea');
   })
+
   .createTable('comment',function(table){
-    table.integer('memberId').notNullable().references('id').inTable('member');
-    table.integer('ideaId').notNullable().references('id').inTable('idea');
+    table.integer('memberId').references('id').inTable('member');
+    table.integer('ideaId').references('id').inTable('idea');
     table.timestamp('commentTimeStamp').defaultTo(knex.fn.now());
     table.string('commentLine').notNullable();
   });

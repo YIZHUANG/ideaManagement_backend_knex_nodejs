@@ -12,7 +12,6 @@
 -- --------------------- 1.Tables created in Mother to Child order ---------------------------------------------
 
 
-
 CREATE TABLE Category
 (
   id               INT             NOT NULL     AUTO_INCREMENT,
