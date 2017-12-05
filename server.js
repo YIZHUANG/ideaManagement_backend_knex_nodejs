@@ -27,8 +27,8 @@ app.get('/member',function(req,res){
   })
 })
 
-app.get('/memberIdea',function(req,res){
-  knex.raw('select * from memberIdea').then(function(data){
+app.get('/memberidea',function(req,res){
+  knex.raw('select * from memb').then(function(data){
     res.send(data);
   })
 })

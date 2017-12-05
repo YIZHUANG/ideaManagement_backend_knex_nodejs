@@ -24,7 +24,7 @@ exports.up = function(knex, Promise) {
     table.string('email').notNullable();
   })
 
-  .createTable('memberIdea',function(table){
+  .createTable('memb',function(table){
     table.integer('memberId').references('id').inTable('member');
     table.integer('ideaId').references('id').inTable('idea');
   })
@@ -38,5 +38,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('comment').dropTable('memberIdea').dropTable('member').dropTable('idea').dropTable('category');
+  return knex.schema.dropTable('comment').dropTable('memb').dropTable('member').dropTable('idea').dropTable('category');
 };
