@@ -17,8 +17,13 @@
     "pg": "^7.4.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dev":"npm run server"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  }
 }
