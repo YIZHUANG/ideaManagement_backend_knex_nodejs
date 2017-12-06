@@ -19,7 +19,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "dev":"npm run server"
+    "client":"npm run start --prefix client",
+    "dev":"concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
