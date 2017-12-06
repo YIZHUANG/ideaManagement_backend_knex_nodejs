@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   addMemberIdea = () => {
-    axios.post('http://localhost:8000/memberidea', {
+    axios.post('/memberidea', {
         memberId: this.state.memberId,
         ideaId: this.state.ideaId
       })
