@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.decimal('budgetLimit');
     table.boolean('isActive').notNullable();
   })
+  
   .createTable('idea',function(table){
     table.increments();
     table.string('title').notNullable();
