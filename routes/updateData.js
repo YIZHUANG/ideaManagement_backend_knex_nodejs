@@ -1,25 +1,27 @@
 var knex = require('../db/knex');
 
 module.exports = app => {
-  app.post('/category', (req, res) => { //insert data to table category, with a form in the client.
+  app.put('/category/:id', (req, res) => {
     knex('category')
-      .insert({
+      .where("id", req.params.id)
+      .update({
         title: req.body.title,
         budgetLimit: req.body.budgetLimit,
         isActive: req.body.isActive
       })
       .then(() => {
         knex.select()
-          .from(category)
+          .from('category')
           .then((data) => {
             res.send(data);
           })
       })
   });
 
-  app.post('/idea', (req, res) => { //insert data to table idea, with a form in the client.
+  app.put('/idea/:id', (req, res) => {
     knex('idea')
-      .insert({
+      .where("id", req.params.id)
+      .update({
         title: req.body.title,
         description: req.body.description,
         budget: req.body.budget,
@@ -36,11 +38,12 @@ module.exports = app => {
       })
   });
 
-  app.post('/member', (req, res) => { //insert data to table member, with a form in the client.
+  app.put('/member/:id', (req, res) => {
     knex('member')
-      .insert({
+      .where("id", req.params.id)
+      .update({
         userName: req.body.userName,
-        email: req.body.userName
+        email: req.body.email
       })
       .then(() => {
         knex.select()
@@ -49,11 +52,13 @@ module.exports = app => {
             res.send(data);
           })
       })
-  })
+  });
 
-  app.post('/memberidea', (req, res) => { //insert data to table memb, with a form in the client.
+  app.put('/memberidea/:memberId/:ideaId', (req, res) => {
     knex('memb')
-      .insert({
+      .where('memberId', req.params.memberId)
+      .where('ideaId', req.params.ideaId)
+      .update({
         memberId: req.body.memberId,
         ideaId: req.body.ideaId
       })
@@ -66,11 +71,11 @@ module.exports = app => {
       })
   });
 
-  app.post('/comment', (req, res) => { //insert data to table comment, with a form in the client.
+  app.put('/comment/:memberId/:ideaId', (req, res) => {
     knex('comment')
-      .insert({
-        memberId: req.body.memberId,
-        ideaId: req.body.ideaId,
+      .where('memberId', req.params.memberId)
+      .where('ideaId', req.params.ideaId)
+      .update({
         commentLine: req.body.commentLine
       })
       .then(() => {

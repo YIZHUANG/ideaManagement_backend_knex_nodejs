@@ -14,9 +14,10 @@ app.use(bodyParser.urlencoded({
 
 
 
-require('./routes/apiRoutes')(app);
-require('./routes/insertData')(app);
-
+require('./routes/apiRoutes')(app);   //routes for displaying a list of data.
+require('./routes/insertData')(app);  //routes adding new data.
+require('./routes/updateData')(app);  //routes for editting data.
+require('./routes/deleteData')(app);  //routes for deleting data.
 app.listen(PORT, function() {
   console.log("running at port ", PORT);
 });

@@ -1,21 +1,29 @@
-Build with Node.js  Knex, and as postgresql as the database.
+Build with ReactJs as front-end.
+Node.js, Knex as back-end, and postgresql as the database.
 
-Make sure you have postgresql installed on your computer. Use port 5432 (whcih is the default). And remember the username
-and password you set for your postgresql.
-First, go to the root folder, type 'npn install' in cmd, 
-and then go to the client folder do the same thing.
-knex migrate:rollback
-knex migrate:latest
-knex seed:run
+Make sure you have postgresql installed on your computer.
+Set you host and username and password in knexfile.js
 
-And then create a database name "software" or whatever in  PGadmin4. If your database name is anything but 'software' make sure
-you change that in  knexfile.js too. And also change the password and username in  knexfile.js.
+Make sure you have set knex to the path in your system environment variable.
 
-And finally, in cmd, go back to the root folder where you have the server.js, type 'npm run dev'
+1.install the dependencies both in root folder and the client folder
+npm install    
 
-For the client: You can insert data with form.
 
-The api address for each table: (you can change them in the server.js)
+2.Go back to the root folder to create the database
+first command: knex migrate:rollback
+second command: knex migrate:latest
+third command : knex seed:run
+
+3.Run the project.
+npm run dev  // this will start the back-end and front-end at the same time.
+
+Functions:
+display list of data.
+add data.
+edit the data.
+delete the data.
+
 http://localhost:8000/category  
 http://localhost:8000/idea  
 http://localhost:8000/member  
