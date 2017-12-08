@@ -91,7 +91,7 @@ module.exports = app => {
     knex('idea').innerJoin('category','idea.categoryId','category.id')
     .innerJoin('memb','idea.id','memb.ideaId')
     .innerJoin('member','memb.memberId','member.id')
-    .select('idea.title','idea.description','member.userName','idea.budget','idea.peopleNeeded','idea.isReadyForComments','category.name','idea.creationDate','idea.lastModified')
+    .select('idea.id','idea.title','idea.description','member.userName','idea.budget','idea.peopleNeeded','idea.isReadyForComments','category.name','idea.creationDate','idea.lastModified')
     .then((data)=>{
     res.send(data);
     })

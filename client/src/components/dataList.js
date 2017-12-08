@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-
-export default class DataList extends Component{
-  constructor(props){
+import React, {
+  Component
+} from 'react';
+export default class DataList extends Component {
+  constructor(props) {
     super(props);
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="container-fluid">
         <table className="table table-striped table-hover table-responsive">
            <thead>
