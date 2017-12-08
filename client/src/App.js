@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import Home from './components/home';
 class App extends Component {
 
   constructor(props) {
@@ -51,7 +52,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form>
+      <form>
           <input type="Text" placeholder="memberId" onChange={this.onChangeMemberId.bind(this)}></input>
           <input type="Text" placeholder="ideaId" onChange={this.onChangeIdeaId.bind(this)}></input>
         <button onClick={this.addMemberIdea}>addMemberIdea</button>
