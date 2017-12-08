@@ -7,12 +7,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.addMemberIdea = this.addMemberIdea.bind(this);
+      this.getMember=this.getMember.bind(this);
     this.state = {
       memberId: '',
-      ideaId: ''
+      ideaId: '',
+  memberList:[]
     }
   }
-
+  getMember=()=>{
+    axios.get('http://localhost:8000/memberidea')
+    .then((data)=>{
+      this.setState({memberList:data})
+      console.log(data);
+    }).catch(function(error) {
+      console.log(error);
+    });
+  }
   onChangeMemberId = (event) => {
     this.setState({
       memberId: event.target.value
@@ -38,7 +48,6 @@ class App extends Component {
       });
   }
 
-
   render() {
     return (
       <div className="App">
@@ -47,6 +56,7 @@ class App extends Component {
           <input type="Text" placeholder="ideaId" onChange={this.onChangeIdeaId.bind(this)}></input>
         <button onClick={this.addMemberIdea}>addMemberIdea</button>
       </form>
+        <button onClick={this.getMember}> get list of member</button>
       </div>
     );
   }

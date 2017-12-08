@@ -6,7 +6,7 @@ module.exports = {
       host: '127.0.0.1',
       user: 'postgres',
       password: 'a1234',
-      database: 'software'
+      database: 'postgres'
     },
     migrations: {
       directory: __dirname + '/db/migrations',

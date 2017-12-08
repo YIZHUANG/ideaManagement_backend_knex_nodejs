@@ -43,7 +43,7 @@ module.exports = app => {
       })
   })
 
-  app.get('/member', (req, res) => {
+  app.get('/member/:id', (req, res) => {
     knex.select()
       .from('member')
       .where('id', req.params.id)
