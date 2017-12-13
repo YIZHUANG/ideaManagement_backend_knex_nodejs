@@ -19,10 +19,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
-  
   },
-  "author": "",
-  "license": "ISC",
+  "author": "YI ZHUANG",
   "devDependencies": {
     "nodemon": "^1.12.5"
   }
