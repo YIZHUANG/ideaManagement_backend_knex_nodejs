@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.decimal('budgetLimit');
     table.boolean('isActive').notNullable();
   })
-  
+
   .createTable('idea',function(table){
     table.increments();
     table.string('title').notNullable();
@@ -16,28 +16,28 @@ exports.up = function(knex, Promise) {
     table.integer('peopleNeeded');
     table.timestamp('creationDate').defaultTo(knex.fn.now());
     table.timestamp('lastModified').defaultTo(knex.fn.now());
-    table.integer('categoryId').references('id').inTable('category');
+    table.integer('categoryid').references('id').inTable('category').onUpdate('CASCADE').onDelete('CASCADE');
   })
 
   .createTable('member',function(table){
     table.increments();
-    table.string('userName').notNullable();
+    table.string('username').notNullable();
     table.string('email').notNullable();
   })
 
-  .createTable('memb',function(table){
-    table.integer('memberId').references('id').inTable('member');
-    table.integer('ideaId').references('id').inTable('idea');
+  .createTable('memberidea',function(table){
+    table.integer('memberid').references('id').inTable('member').onUpdate('CASCADE').onDelete('CASCADE');
+    table.integer('ideaid').references('id').inTable('idea').onUpdate('CASCADE').onDelete('CASCADE');
   })
 
   .createTable('comment',function(table){
-    table.integer('memberId').references('id').inTable('member');
-    table.integer('ideaId').references('id').inTable('idea');
-    table.timestamp('commentTimeStamp').defaultTo(knex.fn.now());
-    table.string('commentLine').notNullable();
+    table.integer('memberid');
+    table.integer('ideaid').references('id').inTable('idea').onDelete('CASCADE');
+    table.timestamp('commenttimestamp').defaultTo(knex.fn.now());
+    table.string('commentline').notNullable();
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('comment').dropTable('memb').dropTable('member').dropTable('idea').dropTable('category');
+  return knex.schema.dropTableIfExists('comment').dropTableIfExists('memberidea').dropTableIfExists('member').dropTableIfExists('idea').dropTableIfExists('category');
 };

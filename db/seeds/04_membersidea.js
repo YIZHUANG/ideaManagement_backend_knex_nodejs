@@ -1,19 +1,19 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('memb').del()
+  return knex('memberidea').del()
     .then(function () {
       // Inserts seed entries
-      return knex('memb').insert([
-        {memberId:1,ideaId:1},
-        {memberId:2,ideaId:2},
-        {memberId:3,ideaId:3},
-        {memberId:4,ideaId:4},
-        {memberId:5,ideaId:5},
-        {memberId:6,ideaId:6},
-        {memberId:7,ideaId:7},
-        {memberId:7,ideaId:8},
-        {memberId:7,ideaId:9}
+      return knex('memberidea').insert([
+        {memberid:1,ideaid:1},
+        {memberid:2,ideaid:2},
+        {memberid:3,ideaid:3},
+        {memberid:4,ideaid:4},
+        {memberid:5,ideaid:5},
+        {memberid:6,ideaid:6},
+        {memberid:7,ideaid:7},
+        {memberid:7,ideaid:8},
+        {memberid:7,ideaid:9}
       ]);
     });
 };

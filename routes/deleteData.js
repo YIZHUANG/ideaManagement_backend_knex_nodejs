@@ -14,19 +14,6 @@ module.exports = app => {
       })
   });
 
-  app.delete('/idea/:id', (req, res) => {
-    knex('idea')
-      .where('id', req.params.id)
-      .del()
-      .then(() => {
-        knex.select()
-          .from('idea')
-          .then((data) => {
-            res.send(data);
-          })
-      })
-  });
-
   app.delete('/member/:id', (req, res) => {
     knex('member')
       .where('id', req.params.id)
@@ -40,24 +27,24 @@ module.exports = app => {
       })
   });
 
-  app.delete('/memberidea/:memberId/:ideaId', (req, res) => {
-    knex('memb')
-      .where('memberId', req.params.memberId)
-      .where('ideaId', req.params.ideaId)
+  app.delete('/memberidea/:memberid/:ideaid', (req, res) => {
+    knex('memberidea')
+      .where('memberid', req.params.memberid)
+      .where('ideaid', req.params.ideaid)
       .del()
       .then(() => {
         knex.select()
-          .from('memb')
+          .from('memberidea')
           .then((data) => {
             res.send(data);
           })
       })
   });
 
-  app.delete('/comment/:memberId/:ideaId', (req, res) => {
+  app.delete('/comment/:memberid/:ideaid', (req, res) => {
     knex('comment')
-      .where('memberId', req.params.memberId)
-      .where('ideaId', req.params.ideaId)
+      .where('memberid', req.params.memberid)
+      .where('ideaid', req.params.ideaid)
       .del()
       .then(() => {
         knex.select()

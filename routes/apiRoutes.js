@@ -54,15 +54,15 @@ module.exports = app => {
 
   app.get('/memberidea', (req, res) => {
     knex.select()
-      .from('memb')
+      .from('memberidea')
       .then((data) => {
         res.send(data);
       })
   })
 
-  app.get('/memberidea', (req, res) => {
+  app.get('/memberidea/:id', (req, res) => {
     knex.select()
-      .from('memb')
+      .from('memberidea')
       .where('id', req.params.id)
       .then((data) => {
         res.send(data);
@@ -77,24 +77,13 @@ module.exports = app => {
       })
   })
 
-  app.get('/comment/:memberId/:ideaId', (req, res) => {
+  app.get('/comment/:memberid/:ideaid', (req, res) => {
     knex.select()
       .from('comment')
-      .where('memberId', req.params.memberId)
-      .where('ideaId', req.params.ideaId)
+      .where('memberid', req.params.memberid)
+      .where('ideaid', req.params.ideaid)
       .then((data) => {
         res.send(data);
       })
   })
-
-  app.get('/listData',(req,res)=>{
-    knex('idea').innerJoin('category','idea.categoryId','category.id')
-    .innerJoin('memb','idea.id','memb.ideaId')
-    .innerJoin('member','memb.memberId','member.id')
-    .select('idea.id','idea.title','idea.description','member.userName','idea.budget','idea.peopleNeeded','idea.isReadyForComments','category.name','idea.creationDate','idea.lastModified')
-    .then((data)=>{
-    res.send(data);
-    })
-  })
-
 }

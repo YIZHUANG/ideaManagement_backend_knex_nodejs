@@ -1,35 +1,17 @@
 var knex = require('../db/knex');
 
-module.exports = app => {
+module.exports = (app) => {
+
   app.post('/category', (req, res) => { //insert data to table category, with a form in the client.
     knex('category')
       .insert({
-        title: req.body.title,
+        name: req.body.name,
         budgetLimit: req.body.budgetLimit,
         isActive: req.body.isActive
       })
       .then(() => {
         knex.select()
-          .from(category)
-          .then((data) => {
-            res.send(data);
-          })
-      })
-  });
-
-  app.post('/idea', (req, res) => { //insert data to table idea, with a form in the client.
-    knex('idea')
-      .insert({
-        title: req.body.title,
-        description: req.body.description,
-        budget: req.body.budget,
-        isReadyForComments: req.body.isReadyForComments,
-        peopleNeeded: req.body.peopleNeeded,
-        categoryId: req.body.categoryId
-      })
-      .then(() => {
-        knex.select()
-          .from('idea')
+          .from('category')
           .then((data) => {
             res.send(data);
           })
@@ -39,8 +21,8 @@ module.exports = app => {
   app.post('/member', (req, res) => { //insert data to table member, with a form in the client.
     knex('member')
       .insert({
-        userName: req.body.userName,
-        email: req.body.userName
+        username: req.body.username,
+        email: req.body.username
       })
       .then(() => {
         knex.select()
@@ -51,15 +33,15 @@ module.exports = app => {
       })
   })
 
-  app.post('/memberidea', (req, res) => { //insert data to table memb, with a form in the client.
-    knex('memb')
+  app.post('/memberidea/:id', (req, res) => { //insert data to table memb, with a form in the client.
+    knex('memberidea')
       .insert({
-        memberId: req.body.memberId,
-        ideaId: req.body.ideaId
+        memberid: req.body.memberid,
+        ideaid: req.params.id
       })
       .then(() => {
         knex.select()
-          .from('memb')
+          .from('memberidea')
           .then((data) => {
             res.send(data);
           })
@@ -69,9 +51,9 @@ module.exports = app => {
   app.post('/comment', (req, res) => { //insert data to table comment, with a form in the client.
     knex('comment')
       .insert({
-        memberId: req.body.memberId,
-        ideaId: req.body.ideaId,
-        commentLine: req.body.commentLine
+        memberid: req.body.memberid,
+        ideaid: req.body.ideaid,
+        commentline: req.body.commentline
       })
       .then(() => {
         knex.select()

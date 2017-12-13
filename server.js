@@ -11,13 +11,12 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+require('./routes/featuresApi')(app);  // Routes use in the front end side, your main concern.
+require('./routes/apiRoutes')(app);   //Not used in front-end, only for testing purposes with postman, and future usage.
+require('./routes/insertData')(app);  //Not used in front-end, only for testing purposes with postman, and future usage.
+require('./routes/updateData')(app);  //Not used in front-end, only for testing purposes with postman, and future usage.
+require('./routes/deleteData')(app);  //Not used in front-end, only for testing purposes with postman, and future usage.
 
-
-
-require('./routes/apiRoutes')(app);   //routes for displaying a list of data.
-require('./routes/insertData')(app);  //routes adding new data.
-require('./routes/updateData')(app);  //routes for editting data.
-require('./routes/deleteData')(app);  //routes for deleting data.
 app.listen(PORT, function() {
   console.log("running at port ", PORT);
 });

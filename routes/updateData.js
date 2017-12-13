@@ -18,31 +18,12 @@ module.exports = app => {
       })
   });
 
-  app.put('/idea/:id', (req, res) => {
-    knex('idea')
-      .where("id", req.params.id)
-      .update({
-        title: req.body.title,
-        description: req.body.description,
-        budget: req.body.budget,
-        isReadyForComments: req.body.isReadyForComments,
-        peopleNeeded: req.body.peopleNeeded,
-        categoryId: req.body.categoryId
-      })
-      .then(() => {
-        knex.select()
-          .from('idea')
-          .then((data) => {
-            res.send(data);
-          })
-      })
-  });
 
   app.put('/member/:id', (req, res) => {
     knex('member')
       .where("id", req.params.id)
       .update({
-        userName: req.body.userName,
+        username: req.body.username,
         email: req.body.email
       })
       .then(() => {
@@ -54,33 +35,15 @@ module.exports = app => {
       })
   });
 
-  app.put('/memberidea/:memberId/:ideaId', (req, res) => {
-    knex('memb')
-      .where('memberId', req.params.memberId)
-      .where('ideaId', req.params.ideaId)
+  app.put('/memberidea/:ideaid', (req, res) => {
+    knex('memberidea')
+      .where('ideaid', req.params.ideaid)
       .update({
-        memberId: req.body.memberId,
-        ideaId: req.body.ideaId
+        memberid: req.body.memberid
       })
       .then(() => {
         knex.select()
-          .from('memb')
-          .then((data) => {
-            res.send(data);
-          })
-      })
-  });
-
-  app.put('/comment/:memberId/:ideaId', (req, res) => {
-    knex('comment')
-      .where('memberId', req.params.memberId)
-      .where('ideaId', req.params.ideaId)
-      .update({
-        commentLine: req.body.commentLine
-      })
-      .then(() => {
-        knex.select()
-          .from('comment')
+          .from('memberidea')
           .then((data) => {
             res.send(data);
           })
