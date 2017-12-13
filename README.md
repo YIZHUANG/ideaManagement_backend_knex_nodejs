@@ -1,3 +1,7 @@
+This is the back-end for my project https://github.com/YIZHUANG/ideaManagement_frontend_reactjs
+
+Build by YI ZHUANG.  // 05.12/2017
+
 Build with ReactJs as front-end.
 Node.js, Knex as back-end, and postgresql as the database.
 
@@ -25,15 +29,15 @@ $ npm run server
 
 ## Back-end files explained.  server is running on port 8000.
 ```
-$ knexfile.js : where the database connection is , replace them with your own database configs.
-$ server.js : where the port and main things are defined.
-$ routes/featuresApi.js : all the routes that I am using in the front-end. (where I have the join operations and triggers)
+ knexfile.js : where the database connection is , replace them with your own database configs.
+ server.js : where the port and main things are defined.
+ routes/featuresApi.js : all the routes that I am using in the front-end. (where I have the join operations and triggers)
 $routes/deleteData.js and the rest of the files in this folder are for testing purposes with postman and for future usage perhaps.
 ```
 ## Database files explained.
 ```
-$ db/migrations/20171205155213_create_users.js is the fine where I define the tables and attributes constraints all those stuff.
-$ db/seeds/   the files in this folder are the inserted test data. You can also do these stuff manually with the database client. Or with postman
+ db/migrations/20171205155213_create_users.js is the fine where I define the tables and attributes constraints all those stuff.
+ db/seeds/   the files in this folder are the inserted test data. You can also do these stuff manually with the database client. Or with postman
 ```
 
 ```
