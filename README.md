@@ -13,7 +13,7 @@ if you are using mariadb or mysql, fine! just remember to change your client typ
 ```
 $ npm install
 ```
-#Rollback the database (skip this step if your database is uncompromised)
+#Rollback the database 
 ``` type in these commands in orders
 $ knex migrate:rollback
 
