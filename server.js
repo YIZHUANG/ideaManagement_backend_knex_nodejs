@@ -5,7 +5,7 @@ var knex = require('./db/knex');
 var cors = require('cors');
 var app = express();
 
-app.use(cors());
+app.use(cors()); //allow cross-domain communication.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
