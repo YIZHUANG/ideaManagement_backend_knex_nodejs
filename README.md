@@ -6,6 +6,9 @@ Build with ReactJs as front-end.
 Node.js, Knex as back-end, and postgresql as the database.
 
 ```
+/listData   is the route I am using for getting a list of ideas with join operations, and yes! I know I should have named it better.
+```
+```
 $ Make sure you have postresql installed, and set the postgresql/bin and lib folder to your environment path.
 if you are using mariadb or mysql, fine! just remember to change your client type in knexfile.js file
 ```
@@ -13,7 +16,7 @@ if you are using mariadb or mysql, fine! just remember to change your client typ
 ```
 $ npm install
 ```
-#Rollback the database 
+#Rollback the database
 ``` type in these commands in orders
 $ knex migrate:rollback
 
@@ -43,7 +46,7 @@ $routes/deleteData.js and the rest of the files in this folder are for testing p
 ```
 Functions:
 display list of data.
-add data. (the cool part, when you add data, it will trigger another add data request automatically)
-edit the data. (the cool part, when you edit data, it will trigger another edit data request automatically)
-delete the data.(Associated will be deleted as well due to onDelete('CASCADE'))
+add data. (when you add data, it will trigger another add data request automatically)
+edit the data. (when you edit data, it will trigger another edit data request automatically)
+delete the data.(Associated rows from other tables will be deleted as well due to onDelete('CASCADE'))
 ```
