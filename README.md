@@ -9,6 +9,9 @@ Node.js, Knex as back-end, and postgresql as the database.
 /listData   is the route I am using for getting a list of ideas with join operations, and yes! I know I should have named it better.
 ```
 ```
+Knex do not support uppercase naming of the attributes / tables. Many errors will occur when you are trying to use knex.raw syntax,so try to keep them all lower case.
+```
+```
 $ Make sure you have postresql installed, and set the postgresql/bin and lib folder to your environment path.
 if you are using mariadb or mysql, fine! just remember to change your client type in knexfile.js file
 ```
