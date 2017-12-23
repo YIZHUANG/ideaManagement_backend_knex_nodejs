@@ -3,6 +3,9 @@ This is the back-end for my project https://github.com/YIZHUANG/ideaManagement_f
 Build with ReactJs as front-end.
 Node.js, Knex as back-end, and postgresql as the database.
 
+The reason that i don't refactor the massive chunk of codes in my route handlers is because i have decided that this is a different case, a different situation, it is easier to understand the logic of the code this way having everything displayed in front of you and for the good of whomever is gonna take over the project,  other than dividing them into pieces.
+
+
 ```
 /listData   is the route I am using for getting a list of ideas with join operations, and yes! I know I should have named it better.
 ```
